@@ -15,15 +15,11 @@ public class EndUserSteps extends ScenarioSteps {
 
     @Step
     public EndUserSteps entersBasicSalaryValues(String calcDate, String state, String grossPayAmount) {
+        //checks the page loaded properly
+        getPages().currentPageAt(SalaryPage.class);
         salaryPage.setCalcDate(calcDate);
         salaryPage.setState(state);
         salaryPage.setGrossPayInput(grossPayAmount);
-        return this;
-    }
-
-    @Step
-    public EndUserSteps checks_exemtFederal_Checkbox() {
-        salaryPage.clickExemptFederal();
         return this;
     }
 

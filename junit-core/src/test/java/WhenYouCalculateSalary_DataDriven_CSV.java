@@ -2,7 +2,7 @@ import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
-import net.thucydides.junit.annotations.TestData;
+import net.thucydides.junit.annotations.UseTestDataFrom;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,16 +11,12 @@ import steps.EndUserSteps;
 import steps.SystemSteps;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Collection;
 
 @RunWith(SerenityParameterizedRunner.class)
-public class WhenYouCalculateSalary_DataDriven {
+@UseTestDataFrom(value = "salaryCalculation.csv")
+//можно также установить системную переменную serenity.data.dir
+public class WhenYouCalculateSalary_DataDriven_CSV {
 
-    private final String checkDate;
-    private final String state;
-    private final String grossPay;
-    private final String expectedNetPay;
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
     public Pages pages;
@@ -28,20 +24,27 @@ public class WhenYouCalculateSalary_DataDriven {
     public EndUserSteps endUser;
     @Steps
     public SystemSteps systemSteps;
+    // переменные должны называться также как и колонки в CSV только в camelCase
+    private String checkDate;
+    private String state;
+    private String grossPay;
+    private String expectedNetPay;
 
-    public WhenYouCalculateSalary_DataDriven(String checkDate, String state, String grossPay, String expectedNexPay) {
+    //для инициализации переменым при CSV подходе нужны сетеры
+    public void setCheckDate(String checkDate) {
         this.checkDate = checkDate;
-        this.state = state;
-        this.grossPay = grossPay;
-        this.expectedNetPay = expectedNexPay;
     }
 
-    @TestData
-    public static Collection<Object[]> testData() {
-        return Arrays.asList(new Object[][]{
-                {"06/16/2014", "California", "20000", "$303.65"},
-                {"06/16/2014", "California", "20000", "$303.65"}
-        });
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public void setGrossPay(String grossPay) {
+        this.grossPay = grossPay;
+    }
+
+    public void setExpectedNetPay(String expectedNetPay) {
+        this.expectedNetPay = expectedNetPay;
     }
 
     @Before

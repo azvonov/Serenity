@@ -1,6 +1,5 @@
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Managed;
-import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import net.thucydides.core.pages.Pages;
@@ -20,19 +19,17 @@ import java.util.Collection;
 @Concurrent(threads="2x") //TODO задержка между тредами
 @RunWith(SerenityParameterizedRunner.class)
 public class WhenYouCalculateSalary_Concurrent {
-    @TestData
-    public static Collection<Object[]> testData() {
-        return Arrays.asList(new Object[][]{
-                {"06/16/2014", "California", "20000", "$303.65"},
-                {"06/16/2014", "California", "20000", "$303.65"}
-        });
-    }
-
     private final String checkDate;
     private final String state;
     private final String grossPay;
     private final String expectedNetPay;
-
+    @Managed(uniqueSession = true)
+    public WebDriver webdriver;
+    public Pages pages;
+    @Steps
+    public EndUserSteps endUser;
+    @Steps
+    public SystemSteps systemSteps;
 
     public WhenYouCalculateSalary_Concurrent(String checkDate, String state, String grossPay, String expectedNexPay) {
         this.checkDate = checkDate;
@@ -41,17 +38,13 @@ public class WhenYouCalculateSalary_Concurrent {
         this.expectedNetPay = expectedNexPay;
     }
 
-    @Managed(uniqueSession = true)
-    public WebDriver webdriver;
-
-    @ManagedPages(defaultUrl = "http://www.paycheckcity.com/calculator/salary/")
-    public Pages pages;
-
-    @Steps
-    public EndUserSteps endUser;
-
-    @Steps
-    public SystemSteps systemSteps;
+    @TestData
+    public static Collection<Object[]> testData() {
+        return Arrays.asList(new Object[][]{
+                {"06/16/2014", "California", "20000", "$303.65"},
+                {"06/16/2014", "California", "20000", "$303.65"}
+        });
+    }
 
     @Before
     public void setUp() throws IOException {

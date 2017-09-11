@@ -12,15 +12,21 @@ import steps.SystemSteps;
 
 import java.io.IOException;
 
+@Narrative(text={"In order to calculate my salary after taxation",
+        "As a user",
+        "I want to be able to calculate my met salary"})
+
 @Story(Application.Salary.CalculationChecks.class)
 @RunWith(SerenityRunner.class)
-public class SalaryCalculationChecks {
+public class WhenYouCalculateSalary {
 
     //выполнять все тесты в одном окне
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
 
-    @ManagedPages(defaultUrl = "http://www.paycheckcity.com/calculator/salary/")
+ //   @ManagedPages(defaultUrl = "http://www.paycheckcity.com/calculator/salary/")
+    //URL страницы может быть указан как в PageObject так и на уровне тестов
+    @ManagedPages
     public Pages pages;
 
     @Steps
@@ -35,9 +41,9 @@ public class SalaryCalculationChecks {
     }
 
     //TODO jira requirement provier
-    @Title("Override name if method name is not briliant enonugh")
     @Test
     public void calculate_netPay_Salary_California() {
+
         endUser.at_the_SalaryPage()
                 .entersBasicSalaryValues("06/16/2014", "California", "20000")
                 .clicks_calculate_button()
