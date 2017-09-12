@@ -1,4 +1,4 @@
-package requirements;
+package payCheckCity.requirements;
 
 
 import net.thucydides.core.annotations.Feature;

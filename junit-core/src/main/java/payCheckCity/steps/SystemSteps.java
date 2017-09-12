@@ -1,4 +1,4 @@
-package steps;
+package payCheckCity.steps;
 
 import net.thucydides.core.steps.ScenarioSteps;
 

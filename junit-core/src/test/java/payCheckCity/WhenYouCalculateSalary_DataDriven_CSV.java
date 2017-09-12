@@ -1,3 +1,5 @@
+package payCheckCity;
+
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
@@ -7,8 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import steps.EndUserSteps;
-import steps.SystemSteps;
+import payCheckCity.steps.EndUserSteps;
+import payCheckCity.steps.SystemSteps;
 
 import java.io.IOException;
 

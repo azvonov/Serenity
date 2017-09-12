@@ -1,3 +1,5 @@
+package payCheckCity;
+
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.*;
 import net.thucydides.core.pages.Pages;
@@ -6,9 +8,9 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import requirements.Application;
-import steps.EndUserSteps;
-import steps.SystemSteps;
+import payCheckCity.requirements.Application;
+import payCheckCity.steps.EndUserSteps;
+import payCheckCity.steps.SystemSteps;
 
 import java.io.IOException;
 

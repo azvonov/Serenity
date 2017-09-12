@@ -1,4 +1,4 @@
-package pages;
+package payCheckCity.pages;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;

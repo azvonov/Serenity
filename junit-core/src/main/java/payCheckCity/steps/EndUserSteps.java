@@ -1,9 +1,9 @@
-package steps;
+package payCheckCity.steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import pages.SalaryCalculatorResultPage;
-import pages.SalaryPage;
+import payCheckCity.pages.SalaryCalculatorResultPage;
+import payCheckCity.pages.SalaryPage;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
