@@ -8,8 +8,8 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import payCheckCity.requirements.Application;
-import payCheckCity.steps.EndUserSteps;
+import payCheckCity.requirements.PayCheckCityApp;
+import payCheckCity.steps.PayCheckUserSteps;
 import payCheckCity.steps.SystemSteps;
 
 import java.io.IOException;
@@ -18,7 +18,7 @@ import java.io.IOException;
         "As a user",
         "I want to be able to calculate my met salary"})
 
-@Story(Application.Salary.CalculationChecks.class)
+@Story(PayCheckCityApp.Salary.CalculationChecks.class)
 @RunWith(SerenityRunner.class)
 public class WhenYouCalculateSalary {
 
@@ -32,7 +32,7 @@ public class WhenYouCalculateSalary {
     public Pages pages;
 
     @Steps
-    public EndUserSteps endUser;
+    public PayCheckUserSteps endUser;
 
     @Steps
     public SystemSteps systemSteps;

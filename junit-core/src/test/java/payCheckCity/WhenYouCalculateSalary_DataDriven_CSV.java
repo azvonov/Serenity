@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import payCheckCity.steps.EndUserSteps;
+import payCheckCity.steps.PayCheckUserSteps;
 import payCheckCity.steps.SystemSteps;
 
 import java.io.IOException;
@@ -23,7 +23,7 @@ public class WhenYouCalculateSalary_DataDriven_CSV {
     public WebDriver webdriver;
     public Pages pages;
     @Steps
-    public EndUserSteps endUser;
+    public PayCheckUserSteps endUser;
     @Steps
     public SystemSteps systemSteps;
     // переменные должны называться также как и колонки в CSV только в camelCase

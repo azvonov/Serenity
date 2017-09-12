@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import payCheckCity.steps.EndUserSteps;
+import payCheckCity.steps.PayCheckUserSteps;
 import payCheckCity.steps.SystemSteps;
 
 import java.io.IOException;
@@ -27,7 +27,7 @@ public class WhenYouCalculateSalary_DataDriven {
     public WebDriver webdriver;
     public Pages pages;
     @Steps
-    public EndUserSteps endUser;
+    public PayCheckUserSteps endUser;
     @Steps
     public SystemSteps systemSteps;
 

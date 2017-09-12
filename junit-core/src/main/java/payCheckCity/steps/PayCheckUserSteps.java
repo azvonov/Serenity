@@ -8,13 +8,13 @@ import payCheckCity.pages.SalaryPage;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-public class EndUserSteps extends ScenarioSteps {
+public class PayCheckUserSteps extends ScenarioSteps {
 
     SalaryPage salaryPage;
     SalaryCalculatorResultPage salaryCalculatorResultPage;
 
     @Step
-    public EndUserSteps entersBasicSalaryValues(String calcDate, String state, String grossPayAmount) {
+    public PayCheckUserSteps entersBasicSalaryValues(String calcDate, String state, String grossPayAmount) {
         //checks the page loaded properly
         getPages().currentPageAt(SalaryPage.class);
         salaryPage.setCalcDate(calcDate);
@@ -24,19 +24,19 @@ public class EndUserSteps extends ScenarioSteps {
     }
 
     @Step
-    public EndUserSteps clicks_calculate_button() {
+    public PayCheckUserSteps clicks_calculate_button() {
         salaryPage.clickCalculateButton();
         return this;
     }
 
     @Step
-    public EndUserSteps at_the_SalaryPage() {
+    public PayCheckUserSteps at_the_SalaryPage() {
         salaryPage.open();
         return this;
     }
 
     @Step
-    public EndUserSteps assert_netPayValue(String expectedValue) {
+    public PayCheckUserSteps assert_netPayValue(String expectedValue) {
         assertThat("NePay's actual value differs from the gieven",
                 salaryCalculatorResultPage.getNetPayValue(),
                 is(expectedValue));

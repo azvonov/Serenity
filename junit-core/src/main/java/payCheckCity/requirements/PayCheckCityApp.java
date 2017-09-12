@@ -3,7 +3,7 @@ package payCheckCity.requirements;
 
 import net.thucydides.core.annotations.Feature;
 
-public class Application {
+public class PayCheckCityApp {
     @Feature
     public class Salary {
         public class CalculationChecks {}
