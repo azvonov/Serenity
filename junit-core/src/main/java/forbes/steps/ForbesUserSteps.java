@@ -2,8 +2,13 @@ package forbes.steps;
 
 import forbes.pages.BillionairesPage;
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.steps.ScenarioSteps;
 
-public class ForbesUserSteps {
+import java.util.List;
+import java.util.Map;
+
+public class ForbesUserSteps extends ScenarioSteps {
+
     BillionairesPage billionairesPage;
 
     @Step
@@ -13,9 +18,7 @@ public class ForbesUserSteps {
     }
 
     @Step
-    public ForbesUserSteps findPersonByName(String name){
-        billionairesPage.getRowByPersonName(name);
-        return  this;
+    public List<Map<Object, String>> getTableRows(){
+        return billionairesPage.getTableRows();
     }
-
 }

@@ -10,7 +10,6 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import payCheckCity.requirements.PayCheckCityApp;
 import payCheckCity.steps.PayCheckUserSteps;
-import payCheckCity.steps.SystemSteps;
 
 import java.io.IOException;
 
@@ -33,9 +32,6 @@ public class WhenYouCalculateSalary {
 
     @Steps
     public PayCheckUserSteps endUser;
-
-    @Steps
-    public SystemSteps systemSteps;
 
     @Before
     public void setUp() throws IOException {
