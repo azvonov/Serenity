@@ -1,5 +1,6 @@
 package payCheckCity.steps;
 
+import net.thucydides.core.annotations.Screenshots;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import payCheckCity.pages.SalaryCalculatorResultPage;
@@ -14,6 +15,7 @@ public class PayCheckUserSteps extends ScenarioSteps {
     SalaryCalculatorResultPage salaryCalculatorResultPage;
 
     @Step
+    @Screenshots(onlyOnFailures=true)
     public PayCheckUserSteps entersBasicSalaryValues(String calcDate, String state, String grossPayAmount) {
         //checks the page loaded properly
         getPages().currentPageAt(SalaryPage.class);
