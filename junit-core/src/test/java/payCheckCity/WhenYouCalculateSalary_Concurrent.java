@@ -1,7 +1,6 @@
 package payCheckCity;
 
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
-import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import net.thucydides.core.pages.Pages;
@@ -10,7 +9,6 @@ import net.thucydides.junit.annotations.TestData;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
 import payCheckCity.steps.PayCheckUserSteps;
 import payCheckCity.steps.SystemSteps;
 
@@ -20,13 +18,12 @@ import java.util.Collection;
 
 @Concurrent(threads="2x") //TODO задержка между тредами
 @RunWith(SerenityParameterizedRunner.class)
-public class WhenYouCalculateSalary_Concurrent {
+public class WhenYouCalculateSalary_Concurrent extends BaseTest {
     private final String checkDate;
     private final String state;
     private final String grossPay;
     private final String expectedNetPay;
-    @Managed(uniqueSession = true)
-    public WebDriver webdriver;
+
     public Pages pages;
     @Steps
     public PayCheckUserSteps endUser;

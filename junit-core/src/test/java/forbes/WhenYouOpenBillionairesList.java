@@ -3,7 +3,6 @@ package forbes;
 import forbes.requirements.ForbesApp;
 import forbes.steps.ForbesUserSteps;
 import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Story;
@@ -11,7 +10,7 @@ import net.thucydides.core.pages.Pages;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
+import payCheckCity.BaseTest;
 
 import java.io.IOException;
 import java.util.List;
@@ -24,10 +23,7 @@ import static org.hamcrest.Matchers.*;
 
 @Story(ForbesApp.Billionaires.ListChecks.class)
 @RunWith(SerenityRunner.class)
-public class WhenYouOpenBillionairesList {
-
-    @Managed(uniqueSession = true)
-    public WebDriver webdriver;
+public class WhenYouOpenBillionairesList extends BaseTest {
 
     @Steps
     public ForbesUserSteps user;

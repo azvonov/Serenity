@@ -1,14 +1,12 @@
 package payCheckCity;
 
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
-import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
 import payCheckCity.steps.PayCheckUserSteps;
 import payCheckCity.steps.SystemSteps;
 
@@ -17,10 +15,8 @@ import java.io.IOException;
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom(value = "salaryCalculation.csv")
 //можно также установить системную переменную serenity.data.dir
-public class WhenYouCalculateSalary_DataDriven_CSV {
+public class WhenYouCalculateSalary_DataDriven_CSV extends BaseTest {
 
-    @Managed(uniqueSession = true)
-    public WebDriver webdriver;
     public Pages pages;
     @Steps
     public PayCheckUserSteps endUser;

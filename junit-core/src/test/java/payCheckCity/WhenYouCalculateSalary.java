@@ -3,15 +3,11 @@ package payCheckCity;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.*;
 import net.thucydides.core.pages.Pages;
-import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
 import payCheckCity.requirements.PayCheckCityApp;
 import payCheckCity.steps.PayCheckUserSteps;
-
-import java.io.IOException;
 
 @Narrative(text={"In order to calculate my salary after taxation",
         "As a user",
@@ -19,24 +15,17 @@ import java.io.IOException;
 
 @Story(PayCheckCityApp.Salary.CalculationChecks.class)
 @RunWith(SerenityRunner.class)
-public class WhenYouCalculateSalary {
+public class WhenYouCalculateSalary extends BaseTest {
 
     //выполнять все тесты в одном окне
-    @Managed(uniqueSession = true)
-    public WebDriver webdriver;
 
- //   @ManagedPages(defaultUrl = "http://www.paycheckcity.com/calculator/salary/")
+    //   @ManagedPages(defaultUrl = "http://www.paycheckcity.com/calculator/salary/")
     //URL страницы может быть указан как в PageObject так и на уровне тестов
     @ManagedPages
     public Pages pages;
 
     @Steps
     public PayCheckUserSteps endUser;
-
-    @Before
-    public void setUp() throws IOException {
-        webdriver.manage().window().maximize();
-    }
 
     //TODO jira requirement provier
     @Test
@@ -60,10 +49,11 @@ public class WhenYouCalculateSalary {
 
     @Pending
     @Test
-    public void calculate_social_security(){
+    public void calculate_social_security() {
     }
 
     @Test
-    public void exchageRatesShouldBetheSameAsInTheSourceSystem(){
+    public void exchageRatesShouldBetheSameAsInTheSourceSystem() {
     }
-} 
+
+}

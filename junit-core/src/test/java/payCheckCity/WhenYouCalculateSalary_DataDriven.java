@@ -1,14 +1,12 @@
 package payCheckCity;
 
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
-import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.junit.annotations.TestData;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
 import payCheckCity.steps.PayCheckUserSteps;
 import payCheckCity.steps.SystemSteps;
 
@@ -17,14 +15,13 @@ import java.util.Arrays;
 import java.util.Collection;
 
 @RunWith(SerenityParameterizedRunner.class)
-public class WhenYouCalculateSalary_DataDriven {
+public class WhenYouCalculateSalary_DataDriven extends BaseTest {
 
     private final String checkDate;
     private final String state;
     private final String grossPay;
     private final String expectedNetPay;
-    @Managed(uniqueSession = true)
-    public WebDriver webdriver;
+
     public Pages pages;
     @Steps
     public PayCheckUserSteps endUser;
