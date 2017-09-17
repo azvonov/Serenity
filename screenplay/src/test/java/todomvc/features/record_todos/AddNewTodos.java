@@ -18,9 +18,7 @@ import static net.serenitybdd.screenplay.GivenWhenThen.*;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.hasItems;
 
-/**
- * This example illustrates using Serenity Steps with JUnit.
- */
+
 @RunWith(SerenityRunner.class)
 @WithTags({
         @WithTag("Screenplay pattern"),
