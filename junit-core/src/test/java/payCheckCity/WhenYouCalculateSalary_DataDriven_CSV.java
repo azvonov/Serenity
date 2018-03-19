@@ -16,7 +16,6 @@ import java.io.IOException;
 
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom(value = "salaryCalculation.csv")
-//можно также установить системную переменную serenity.data.dir
 public class WhenYouCalculateSalary_DataDriven_CSV {
 
     @Managed(uniqueSession = true)
@@ -26,13 +25,13 @@ public class WhenYouCalculateSalary_DataDriven_CSV {
     public PayCheckUserSteps endUser;
     @Steps
     public SystemSteps systemSteps;
-    // переменные должны называться также как и колонки в CSV только в camelCase
+    //variables should be named as columns in CSV but in camelCase
     private String checkDate;
     private String state;
     private String grossPay;
     private String expectedNetPay;
 
-    //для инициализации переменым при CSV подходе нужны сетеры
+    //for variables initialisation in CSV approach setters will be required
     public void setCheckDate(String checkDate) {
         this.checkDate = checkDate;
     }
@@ -54,7 +53,6 @@ public class WhenYouCalculateSalary_DataDriven_CSV {
         webdriver.manage().window().maximize();
     }
 
-    //TODO jira requirement provier
     @Test
     public void calculate_netPay_Salary_California() {
         endUser.at_the_SalaryPage()

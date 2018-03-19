@@ -4,10 +4,8 @@ import forbes.requirements.ForbesApp;
 import forbes.steps.ForbesUserSteps;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
-import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Story;
-import net.thucydides.core.pages.Pages;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,9 +30,6 @@ public class WhenYouOpenBillionairesList {
     @Steps
     public ForbesUserSteps user;
 
-    @ManagedPages
-    public Pages pages;
-
     @Before
     public void setUp() throws IOException {
         webdriver.manage().window().maximize();
@@ -44,11 +39,7 @@ public class WhenYouOpenBillionairesList {
     public void billGatesShouldBeFromMicrosoftCompany() {
         List<Map<Object, String>> tableRows = user.at_the_billionariesListPage()
                 .getTableRows();
-        assertThat(tableRows.get(0), allOf(hasEntry("Name", "Bill Gates"),hasEntry("Source","Microsoft")));
-        shouldMatch(tableRows.get(0),the("Name",is("Bill Gates")));
-//   inTable(pages.getPage(BillionairesPage.class).forbesList)
-//                .shouldHaveRowElementsWhere(the("Name", is("Bill Gates")));
+        assertThat(tableRows.get(1), allOf(hasEntry("Name", "Bill Gates"), hasEntry("Source", "Microsoft")));
+        shouldMatch(tableRows.get(1), the("Name", is("Bill Gates")));
     }
-
-
 }

@@ -21,7 +21,7 @@ import java.io.IOException;
 @RunWith(SerenityRunner.class)
 public class WhenYouCalculateSalary {
 
-    //выполнять все тесты в одном окне
+    //executes all tests in one window
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
 
@@ -38,7 +38,6 @@ public class WhenYouCalculateSalary {
         webdriver.manage().window().maximize();
     }
 
-    //TODO jira requirement provier
     @Test
     public void calculate_netPay_Salary_California() {
 

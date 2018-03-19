@@ -18,14 +18,14 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 
-@Concurrent(threads="2x") //TODO задержка между тредами
+@Concurrent(threads = "2x")
 @RunWith(SerenityParameterizedRunner.class)
 public class WhenYouCalculateSalary_Concurrent {
     private final String checkDate;
     private final String state;
     private final String grossPay;
     private final String expectedNetPay;
-    @Managed(uniqueSession = true)
+    @Managed
     public WebDriver webdriver;
     public Pages pages;
     @Steps
@@ -53,7 +53,6 @@ public class WhenYouCalculateSalary_Concurrent {
         webdriver.manage().window().maximize();
     }
 
-    //TODO jira requirement provier
     @Title("Override name if method name is not briliant enonugh")
     @Test
     public void calculate_netPay_Salary_California() {
