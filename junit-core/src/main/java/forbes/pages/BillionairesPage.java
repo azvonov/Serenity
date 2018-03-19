@@ -2,7 +2,6 @@ package forbes.pages;
 
 import forbes.componentns.HtmlTable;
 import net.thucydides.core.annotations.DefaultUrl;
-import net.thucydides.core.annotations.WhenPageOpens;
 import net.thucydides.core.pages.PageObject;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,9 +22,9 @@ public class BillionairesPage extends PageObject {
         return HtmlTable.withColumn("Img","Rank", "Name", "Net Worth", "Age", "Source", "Country")
                 .readRowsFrom(forbesList_withNoHeadings);
     }
-    @WhenPageOpens
-    private void closeBanner() {
-        $(".continue-button").click();
-        waitFor("#the_list");
-    }
+//    @WhenPageOpens
+//    private void closeBanner() {
+//        $(".continue-button").waitUntilClickable().click();
+//        waitFor("#the_list");
+//    }
 }

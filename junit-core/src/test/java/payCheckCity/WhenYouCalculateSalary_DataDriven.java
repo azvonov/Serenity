@@ -4,18 +4,16 @@ import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.junit.annotations.TestData;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import payCheckCity.steps.PayCheckUserSteps;
 import payCheckCity.steps.SystemSteps;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 
 @RunWith(SerenityParameterizedRunner.class)
-public class WhenYouCalculateSalary_DataDriven extends BaseTest {
+public class WhenYouCalculateSalary_DataDriven {
 
     private final String checkDate;
     private final String state;
@@ -43,12 +41,6 @@ public class WhenYouCalculateSalary_DataDriven extends BaseTest {
         });
     }
 
-    @Before
-    public void setUp() throws IOException {
-        webdriver.manage().window().maximize();
-    }
-
-    //TODO jira requirement provier
     @Test
     public void calculate_netPay_Salary_California() {
         endUser.at_the_SalaryPage()

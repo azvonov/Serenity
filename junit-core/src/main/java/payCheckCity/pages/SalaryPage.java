@@ -9,8 +9,7 @@ import net.thucydides.core.annotations.WhenPageOpens;
 
 //@At("#HOST/calculator/salary/") will match both
 //http://www.paycheckcity.com/calculator/salary/
-//http://localhost:8080/calculator/salary/
-@At("http://www.paycheckcity.com/calculator/salary/")
+@At("https://www.paycheckcity.com/calculator/salary/")
 
 //@NamedUrls(
 //  {
@@ -19,7 +18,7 @@ import net.thucydides.core.annotations.WhenPageOpens;
 //  }
 //)
 //page.open("open.issue", withParameters("ISSUE-1"));      how to use from the code
-@DefaultUrl("http://www.paycheckcity.com/calculator/salary/")
+@DefaultUrl("https://www.paycheckcity.com/calculator/salary/")
 public class SalaryPage extends PageObject {
 
     @FindBy(id = "calcDate")

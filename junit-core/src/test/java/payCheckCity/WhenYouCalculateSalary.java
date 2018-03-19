@@ -3,11 +3,15 @@ package payCheckCity;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.*;
 import net.thucydides.core.pages.Pages;
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.WebDriver;
 import payCheckCity.requirements.PayCheckCityApp;
 import payCheckCity.steps.PayCheckUserSteps;
+
+import java.io.IOException;
 
 @Narrative(text={"In order to calculate my salary after taxation",
         "As a user",
@@ -15,11 +19,13 @@ import payCheckCity.steps.PayCheckUserSteps;
 
 @Story(PayCheckCityApp.Salary.CalculationChecks.class)
 @RunWith(SerenityRunner.class)
-public class WhenYouCalculateSalary extends BaseTest {
+public class WhenYouCalculateSalary {
 
-    //выполнять все тесты в одном окне
+    //executes all tests in one window
+    @Managed(uniqueSession = true)
+    public WebDriver webdriver;
 
-    //   @ManagedPages(defaultUrl = "http://www.paycheckcity.com/calculator/salary/")
+ //   @ManagedPages(defaultUrl = "http://www.paycheckcity.com/calculator/salary/")
     //URL страницы может быть указан как в PageObject так и на уровне тестов
     @ManagedPages
     public Pages pages;
@@ -27,7 +33,11 @@ public class WhenYouCalculateSalary extends BaseTest {
     @Steps
     public PayCheckUserSteps endUser;
 
-    //TODO jira requirement provier
+    @Before
+    public void setUp() throws IOException {
+        webdriver.manage().window().maximize();
+    }
+
     @Test
     public void calculate_netPay_Salary_California() {
 
@@ -49,11 +59,10 @@ public class WhenYouCalculateSalary extends BaseTest {
 
     @Pending
     @Test
-    public void calculate_social_security() {
+    public void calculate_social_security(){
     }
 
     @Test
-    public void exchageRatesShouldBetheSameAsInTheSourceSystem() {
+    public void exchageRatesShouldBetheSameAsInTheSourceSystem(){
     }
-
-}
+} 
